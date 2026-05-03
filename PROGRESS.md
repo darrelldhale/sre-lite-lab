@@ -20,9 +20,14 @@
 - Verified nginx serving HTTP 200 via SSM session
 - Learned: agent forwarding, SSM vs SSH, .gitignore discipline
 
-### Week 3 🔄 IN PROGRESS
-- Building CloudWatch metrics, alarms, log shipping, and dashboard
-- Files created in month-1/week-3/
+### Week 3 ✅
+- Created SNS topic and email subscription for alerts
+- Built CloudWatch CPU alarm (triggers >80% for 4 minutes)
+- Built CloudWatch log group and nginx 4xx metric filter
+- Built CloudWatch dashboard with CPU and error widgets
+- Installed and configured CloudWatch agent on App Server via SSM
+- Verified nginx logs shipping to CloudWatch log group
+- Learned: data sources, IAM policy attachments, CloudWatch agent config
 
 ### Week 4 ⏳
 - Chaos engineering, CPU stress tests, runbooks, post-mortems

@@ -57,8 +57,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_high" {
   ok_actions          = [aws_sns_topic.alerts.arn]
 
   dimensions = {
-    Name    = "${var.project_name}-cpu-high"
-    Project = var.project_name
+    InstanceId = data.aws_instance.app_server.id
   }
 }
 

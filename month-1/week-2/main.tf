@@ -229,6 +229,7 @@ resource "aws_instance" "app_server" {
   subnet_id              = aws_subnet.private_1.id
   vpc_security_group_ids = [aws_security_group.app_server.id]
   iam_instance_profile   = aws_iam_instance_profile.app_server_ssm.name
+  monitoring             = true
 
   user_data = <<-EOF
     #!/bin/bash
