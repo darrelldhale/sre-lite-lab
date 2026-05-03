@@ -39,8 +39,40 @@
 - Learned: chaos engineering, CPU burst credits, alarm dimensions,
   incident documentation
 
-## Month 2 — Planned
-- Docker, CI/CD with GitHub Actions, advanced Terraform
+## Month 2 — Infrastructure as Code (Planned)
+- Terraform deep dive: state, modules, workspaces
+- CloudFormation as backup skill
+- SSM at scale
+- Tagging strategies and cost accountability
 
-## Month 3 — Planned
-- Kubernetes (EKS), SLOs/SLIs, error budgets, incident management
+## Month 3 — Compute, Containers & Deployment (Planned)
+- EC2 deep dive: launch templates, AMIs, Auto Scaling Groups
+- Docker fundamentals and ECS Fargate
+- Blue/Green and canary deployment patterns
+- Introduction to EKS
+
+## Month 4 — Observability (Planned)
+- CloudWatch the right way: structured logging, X-Ray tracing
+- Real on-call dashboard
+- SLIs, SLOs, error budgets
+- Synthetic monitoring and canaries
+
+## Month 5 — Incident Management & Chaos Engineering (Planned)
+- Full incident response playbook
+- AWS Fault Injection Simulator (FIS)
+- Runnable runbooks
+- On-call simulation exercises
+- Backup/restore and DR testing
+
+## Month 6 — Security, Networking & Cost (Planned)
+- AWS Security Hub, GuardDuty, Config
+- VPC Flow Logs
+- Secrets Manager and Parameter Store
+- FinOps: Cost Explorer, Budgets, rightsizing
+
+## Month 7 — Capstone (Planned)
+- Multi-tier, highly available production-grade system
+- Full IaC, observability, CI/CD pipeline
+- Chaos engineering with own runbooks
+- Post-mortem
+- SRE portfolio document
