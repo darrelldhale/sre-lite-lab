@@ -211,6 +211,11 @@ resource "aws_iam_role_policy_attachment" "app_server_ssm" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
+resource "aws_iam_role_policy_attachment" "app_server_cloudwatch" {
+  role       = aws_iam_role.app_server_ssm.name
+  policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
+}
+
 # Instance profile wraps the role so EC2 can use it
 resource "aws_iam_instance_profile" "app_server_ssm" {
   name = "${var.project_name}-app-server-profile"
