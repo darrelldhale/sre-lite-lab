@@ -29,8 +29,15 @@
 - Verified nginx logs shipping to CloudWatch log group
 - Learned: data sources, IAM policy attachments, CloudWatch agent config
 
-### Week 4 ⏳
-- Chaos engineering, CPU stress tests, runbooks, post-mortems
+### Week 4 ✅
+- Installed stress tooling on App Server via SSM
+- Diagnosed and fixed misconfigured CloudWatch alarm dimensions
+- Successfully triggered CPU alarm above 80% threshold
+- Received ALARM and OK email notifications via SNS
+- Wrote runbook for high CPU incident response
+- Wrote post-mortem documenting root cause and lessons learned
+- Learned: chaos engineering, CPU burst credits, alarm dimensions,
+  incident documentation
 
 ## Month 2 — Planned
 - Docker, CI/CD with GitHub Actions, advanced Terraform
