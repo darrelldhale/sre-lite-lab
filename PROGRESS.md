@@ -12,11 +12,11 @@
 ## Month 1 — SRE Foundations ⬅️ IN PROGRESS
 
 ### Week 1 — Linux Internals (In Progress)
-- [ ] Processes, PIDs, parent/child relationships
-- [ ] Signals and how the kernel communicates with processes
-- [ ] File descriptors and why everything is a file
-- [ ] systemd: units, targets, journald
-- [ ] cgroups: resource limits and container foundations
+- [X] Processes, PIDs, parent/child relationships
+- [X] Signals and how the kernel communicates with processes
+- [X] File descriptors and why everything is a file
+- [X] systemd: units, targets, journald
+- [X] cgroups: resource limits and container foundations
 
 ### Week 2 — Bash Scripting (Planned)
 - [ ] Variables, conditionals, loops
