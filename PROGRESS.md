@@ -29,11 +29,11 @@
 - [x] Built sre-logdig.sh — multi-source log search with time filtering
 
 ### Week 3 — Networking Fundamentals (Planned)
-- [ ] TCP/IP: how packets actually move
-- [ ] DNS: resolution from stub to root
-- [ ] HTTP: requests, responses, status codes
-- [ ] TLS: handshake, certificates, trust chains
-- [ ] Debugging tools: curl, dig, netstat, tcpdump
+- [x] TCP/IP: how packets actually move
+- [x] DNS: resolution from stub to root
+- [x] HTTP: requests, responses, status codes
+- [x] TLS: handshake, certificates, trust chains
+- [x] Debugging tools: curl, dig, netstat, tcpdump
 
 ### Week 4 — Git Workflows + AWS CLI + IAM (Planned)
 - [ ] Git branching strategies for infrastructure
