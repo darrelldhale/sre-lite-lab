@@ -18,14 +18,15 @@
 - [x] systemd: units, targets, journald
 - [x] cgroups: resource limits and container foundations
 
-### Week 2 — Bash Scripting (In Progress)
-- [x] Variables, conditionals, loops
-- [x] Functions and script structure
-- [x] Error handling: set -euo pipefail, ||, exit codes
-- [x] Built sre-snapshot.sh — captures full system state on arrival
+### Week 2 — Bash Scripting ✅
+- [x] Variables, conditionals, loops, functions
+- [x] Error handling: set -euo pipefail, exit codes, || true
+- [x] Argument validation: $#, $1, $2, default values
+- [x] Arrays and for loops
+- [x] Built sre-snapshot.sh — full system state capture
 - [x] Built sre-healthcheck.sh — 5-layer pass/fail health report
-- [ ] sre-watchdog.sh — monitors a service and restarts if it dies
-- [ ] sre-logdig.sh — searches logs across services for a pattern
+- [x] Built sre-watchdog.sh — auto-restart with logging and max retries
+- [x] Built sre-logdig.sh — multi-source log search with time filtering
 
 ### Week 3 — Networking Fundamentals (Planned)
 - [ ] TCP/IP: how packets actually move
