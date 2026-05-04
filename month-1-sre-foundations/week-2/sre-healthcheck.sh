@@ -1,7 +1,5 @@
 #!/bin/bash
-
 # This script performs a simple health check on the system, checking disk usage, memory usage, CPU load, failed services, and listening network ports.
-
 set -uo pipefail
 
 # Colors
