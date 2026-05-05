@@ -35,11 +35,15 @@
 - [x] TLS: handshake, certificates, trust chains
 - [x] Debugging tools: curl, dig, netstat, tcpdump
 
-### Week 4 — Git Workflows + AWS CLI + IAM (Planned)
-- [ ] Git branching strategies for infrastructure
-- [ ] AWS CLI mastery: profiles, output formats, JMESPath
-- [ ] IAM: users, roles, policies, least privilege
-- [ ] Your first runbook as code exercise
+### Week 4 — Git Workflows + AWS CLI + IAM ✅
+- [x] Git branching: checkout -b, merge, fast-forward vs merge commit
+- [x] Branch cleanup and push workflow
+- [x] AWS CLI output formats: json, table, text
+- [x] JMESPath filtering with --query
+- [x] IAM users, groups, policies, roles
+- [x] AdministratorAccess policy — what it means
+- [x] Service-linked roles — what they are and where they come from
+- [x] Least privilege principle
 
 ---
 
