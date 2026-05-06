@@ -25,6 +25,8 @@ module "networking" {
   project_name   = var.project_name
   aws_region     = var.aws_region
   vpc_cidr_block = "10.0.0.0/16"
+  owner          = var.owner
+  cost_center    = var.cost_center
 }
 
 module "compute" {
@@ -34,6 +36,8 @@ module "compute" {
   private_subnet_1_id = module.networking.private_subnet_1_id
   ami_id              = var.ami_id
   instance_type       = terraform.workspace == "prod" ? "t3.small" : "t2.micro"
+  owner               = var.owner
+  cost_center         = var.cost_center
 }
 
 module "observability" {
@@ -43,4 +47,6 @@ module "observability" {
   instance_id        = module.compute.instance_id
   alert_email        = var.alert_email
   log_retention_days = terraform.workspace == "prod" ? 30 : 7
+  owner              = var.owner
+  cost_center        = var.cost_center
 }

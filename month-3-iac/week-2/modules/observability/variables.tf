@@ -24,3 +24,16 @@ variable "log_retention_days" {
   type        = number
   default     = 30
 }
+
+# Tagging variables
+variable "owner" {
+  description = "Person or team responsible for this resource"
+  type        = string
+  default     = "darrell"
+}
+
+variable "cost_center" {
+  description = "Budget category for cost allocation"
+  type        = string
+  default     = "sre-lab-training"
+}

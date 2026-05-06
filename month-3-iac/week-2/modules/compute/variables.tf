@@ -23,3 +23,16 @@ variable "instance_type" {
   type        = string
   default     = "t2.micro"
 }
+
+# Tagging variables
+variable "owner" {
+  description = "The person or team responsible for this resource."
+  type        = string
+  default     = "darrell"
+}
+
+variable "cost_center" {
+  description = "The cost center to which this resource should be billed."
+  type        = string
+  default     = "sre-lab-training"
+}

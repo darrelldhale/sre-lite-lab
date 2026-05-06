@@ -1,11 +1,23 @@
+# Tagging convention:
+locals {
+  tags = {
+    Project     = var.project_name
+    Environment = terraform.workspace
+    Owner       = var.owner
+    ManagedBy   = "terraform"
+    CostCenter  = var.cost_center
+  }
+}
+
+
+
 # SNS Topic
 resource "aws_sns_topic" "alerts" {
   name = "${var.project_name}-alerts"
 
-  tags = {
-    Name    = "${var.project_name}-alerts"
-    Project = var.project_name
-  }
+  tags = merge(local.tags, {
+    Name = "${var.project_name}-alerts-topic"
+  })
 }
 
 resource "aws_sns_topic_subscription" "email_alerts" {
@@ -19,10 +31,9 @@ resource "aws_cloudwatch_log_group" "nginx_logs" {
   name              = "/${var.project_name}/nginx/access"
   retention_in_days = var.log_retention_days
 
-  tags = {
-    Name    = "${var.project_name}-nginx-logs"
-    Project = var.project_name
-  }
+  tags = merge(local.tags, {
+    Name = "${var.project_name}-nginx-logs"
+  })
 }
 
 # CloudWatch Metric Filter for 4xx errors
@@ -71,10 +82,9 @@ resource "aws_cloudwatch_metric_alarm" "nginx_4xx_high" {
   alarm_actions       = [aws_sns_topic.alerts.arn]
   treat_missing_data  = "notBreaching"
 
-  tags = {
-    Name    = "${var.project_name}-nginx-4xx-high-alarm"
-    Project = var.project_name
-  }
+  tags = merge(local.tags, {
+    Name = "${var.project_name}-nginx-4xx-alarm"
+  })
 }
 
 # CloudWatch Dashboard

@@ -1,3 +1,15 @@
+# Tagging convention:
+locals {
+  tags = {
+    Project     = var.project_name
+    Environment = terraform.workspace
+    Owner       = var.owner
+    ManagedBy   = "terraform"
+    CostCenter  = var.cost_center
+  }
+}
+
+
 # Security Group
 resource "aws_security_group" "app_server_sg" {
   name        = "${var.project_name}-app-server-sg"
@@ -20,10 +32,9 @@ resource "aws_security_group" "app_server_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name    = "${var.project_name}-app-server-sg"
-    Project = var.project_name
-  }
+  tags = merge(local.tags, {
+    Name = "${var.project_name}-app-server-sg"
+  })
 }
 
 # IAM Role
@@ -43,10 +54,9 @@ resource "aws_iam_role" "app_server_role" {
     ]
   })
 
-  tags = {
-    Name    = "${var.project_name}-app-server-role"
-    Project = var.project_name
-  }
+  tags = merge(local.tags, {
+    Name = "${var.project_name}-app-server-role"
+  })
 }
 
 # IAM Role Policy Attachment
@@ -63,6 +73,10 @@ resource "aws_iam_role_policy_attachment" "cloudwatch" {
 resource "aws_iam_instance_profile" "app_server_instance_profile" {
   name = "${var.project_name}-app-server-instance-profile"
   role = aws_iam_role.app_server_role.name
+
+  tags = merge(local.tags, {
+    Name = "${var.project_name}-app-server-instance-profile"
+  })
 }
 
 # EC2 Instance
@@ -84,8 +98,7 @@ systemctl enable nginx
 systemctl start nginx
 EOF
 
-  tags = {
-    Name    = "${var.project_name}-app-server"
-    Project = var.project_name
-  }
+  tags = merge(local.tags, {
+    Name = "${var.project_name}-app-server"
+  })
 }

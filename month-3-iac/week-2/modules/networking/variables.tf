@@ -13,3 +13,16 @@ variable "vpc_cidr_block" {
   type        = string
   default     = "10.0.0.0/16"
 }
+
+# Tagging variables
+variable "owner" {
+  description = "The person or team responsible for this resource"
+  type        = string
+  default     = "darrell"
+}
+
+variable "cost_center" {
+  description = "The cost center associated with this resource"
+  type        = string
+  default     = "sre-lab-training"
+}
