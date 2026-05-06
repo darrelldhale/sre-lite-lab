@@ -98,6 +98,19 @@ Week 4 — SSM at scale + Tagging strategies
 - [x] Wrote full repo README.md with month summaries and key decisions
 - [x] Learned: remote state, state locking, bootstrap problem, consolidated roots
 
+### Week 2 — Terraform Modules + Workspaces ✅
+- [x] Refactored flat main.tf into three reusable modules: networking, compute, observability
+- [x] Each module has its own variables.tf, main.tf, and outputs.tf
+- [x] Wired module outputs to module inputs via root main.tf
+- [x] Verified data flow: networking → compute → observability
+- [x] Ran terraform init, plan, and apply with modular structure
+- [x] Verified nginx HTTP 200 via SSM on modular stack
+- [x] Created dev, prod, and default workspaces
+- [x] Made code workspace-aware: prod gets t3.small/30d logs, dev gets t2.micro/7d logs
+- [x] Verified ternary expressions drive correct values per workspace
+- [x] Learned: modules, data flow between modules, workspaces, ternary expressions
+
+
 ---
 
 ## Month 4 — Compute, Containers & Deployment (Planned)
