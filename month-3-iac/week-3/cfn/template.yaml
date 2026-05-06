@@ -1,0 +1,83 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "SRE Lab - CloudFormation practice stack - SNS Topic and CloudWatch Alarm"
+
+Parameters:
+  ProjectName:
+    Type: String
+    Description: "Used to name and tag resources created by this stack"
+    Default: "SRELab"
+
+  AlertEmail:
+    Type: String
+    Description: "Email address for receiving CloudWatch Alarm notifications"
+    Default: "myawstraining2026@gmail.com"
+
+  InstanceId:
+    Type: String
+    Description: "ID of the EC2 instance to monitor with CloudWatch Alarm"
+    Default: "i-03d840102489a7729"
+
+Resources:
+  AlertsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: !Sub "${ProjectName}-cfn-alerts"
+      Tags:
+        - Key: Name
+          Value: !Sub "${ProjectName}-cfn-alerts"
+        - Key: Project
+          Value: !Ref ProjectName
+
+  AlertsEmailSubscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      TopicArn: !Ref AlertsTopic
+      Protocol: email
+      Endpoint: !Ref AlertEmail
+
+  CPUAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub "${ProjectName}-cfn-cpu-high"
+      AlarmDescription: "Alarm when CPU exceeds 80% for 4 minutes"
+      MetricName: CPUUtilization
+      Namespace: AWS/EC2
+      Statistic: Average
+      Period: 120
+      EvaluationPeriods: 2
+      Threshold: 80
+      ComparisonOperator: GreaterThanThreshold
+      AlarmActions:
+        - !Ref AlertsTopic
+      OKActions:
+        - !Ref AlertsTopic
+      Dimensions:
+        - Name: InstanceId
+          Value: !Ref InstanceId
+
+
+  NginxAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub "${ProjectName}-cfn-nginx-4xx"
+      AlarmDescription: "Triggers when nginx 4xx errors exceed 10 in 60 seconds"
+      MetricName: Nginx4xxErrors
+      Namespace: !Sub "${ProjectName}/nginx"
+      Statistic: Sum
+      Period: 60
+      EvaluationPeriods: 1
+      Threshold: 10
+      ComparisonOperator: GreaterThanThreshold
+      TreatMissingData: notBreaching
+      AlarmActions:
+        - !Ref AlertsTopic
+
+
+Outputs:
+  SNSTopicArn:
+    Description: "ARN of the SNS topic for alerts"
+    Value: !Ref AlertsTopic
+
+  CloudWatchAlarmName:
+    Description: "Name of the CloudWatch Alarm monitoring CPU utilization"
+    Value: !Ref CPUAlarm
