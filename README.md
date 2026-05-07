@@ -40,12 +40,12 @@ sre-lite-lab/
 ```
 ## Month Summaries
 
-### Month 1 — SRE Foundations ✅
+### Month 1 — SRE Foundations
 Linux internals (processes, signals, cgroups, systemd), Bash scripting,
 networking fundamentals (TCP/IP, DNS, TLS, HTTP), Git workflows, AWS CLI,
 and IAM fundamentals. Built 4 production-style bash scripts.
 
-### Month 2 — AWS Infrastructure ✅
+### Month 2 — AWS Infrastructure
 Built a full VPC with public/private subnets, NAT Gateway, and an EC2
 app server running nginx in a private subnet. Access via SSM Session Manager
 (no bastion, no SSH). Added CloudWatch alarms, SNS alerting, log shipping,
@@ -53,28 +53,28 @@ and a dashboard. Ran chaos testing to trigger CPU alarms and wrote a
 post-mortem. Infrastructure destroyed after the month to save costs.
 Original Terraform lives in `month-2-aws-infra/` as a learning artifact.
 
-### Month 3 — Infrastructure as Code 🔄 In Progress
+### Month 3 — Infrastructure as Code
 Refactoring Month 2 infra with Terraform best practices: remote state in S3,
 DynamoDB state locking, consolidated root module, Terraform modules,
 workspaces, and a tagging strategy.
 
-### Month 4 — Compute, Containers & Deployment 📅 Planned
+### Month 4 — Compute, Containers & Deployment
 EC2 launch templates, AMIs, Auto Scaling Groups, Docker, ECS Fargate,
 blue/green and canary deployments, EKS introduction.
 
-### Month 5 — Observability 📅 Planned
+### Month 5 — Observability
 Structured logging, X-Ray tracing, real on-call dashboards, SLIs, SLOs,
 error budgets, synthetic monitoring.
 
-### Month 6 — Incident Management & Chaos Engineering 📅 Planned
+### Month 6 — Incident Management & Chaos Engineering
 Full incident response playbook, AWS Fault Injection Simulator, runnable
 runbooks, on-call simulation, backup and DR testing.
 
-### Month 7 — Security, Networking & Cost 📅 Planned
+### Month 7 — Security, Networking & Cost
 Security Hub, GuardDuty, Config, VPC Flow Logs, Secrets Manager,
 Parameter Store, FinOps with Cost Explorer and Budgets.
 
-### Month 8 — Capstone 📅 Planned
+### Month 8 — Capstone
 Multi-tier, highly available production-grade system. Full IaC,
 observability stack, CI/CD pipeline, chaos engineering, post-mortem,
 and SRE portfolio document.
