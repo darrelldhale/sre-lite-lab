@@ -9,9 +9,9 @@
 
 ---
 
-## Month 1 — SRE Foundations ⬅️ IN PROGRESS
+## Month 1 — SRE Foundations ✅
 
-### Week 1 — Linux Internals (In Progress)
+### Week 1 — Linux Internals
 - [x] Processes, PIDs, parent/child relationships
 - [x] Signals and how the kernel communicates with processes
 - [x] File descriptors and why everything is a file
@@ -28,7 +28,7 @@
 - [x] Built sre-watchdog.sh — auto-restart with logging and max retries
 - [x] Built sre-logdig.sh — multi-source log search with time filtering
 
-### Week 3 — Networking Fundamentals (Planned)
+### Week 3 — Networking Fundamentals ✅
 - [x] TCP/IP: how packets actually move
 - [x] DNS: resolution from stub to root
 - [x] HTTP: requests, responses, status codes
@@ -134,6 +134,7 @@ Week 4 — SSM at scale + Tagging strategies
 - [x] Applied tags to all 17 resources via terraform apply
 - [x] Verified Environment tag enables SSM fleet targeting — 1 target, 1 completed, 0 errors
 - [x] Learned: SSM Documents vs interactive sessions, tag-based targeting, merge pattern in Terraform
+  [x] Enhanced SRELab-HealthCheck SSM document — added TOP CPU CONSUMERS step (ps aux sorted by CPU)
 
 ---
 
@@ -142,6 +143,18 @@ Week 4 — SSM at scale + Tagging strategies
 - Docker fundamentals and ECS Fargate
 - Blue/Green and canary deployment patterns
 - Introduction to EKS
+
+### Week 1 — EC2 Deep Dive: AMI, Launch Template, ASG ✅
+- [x] Destroyed Month 3 week-2 stack — AMI survived independently
+- [x] Installed SRE toolkit on existing instance: htop, jq, net-tools, tcpdump, git, stress
+- [x] Baked custom AMI: sre-lab-base-ami-v1 (ami-06e35715bc33b8177)
+- [x] Built self-contained Month 4 Terraform root with networking and compute modules
+- [x] Refactored networking module to use consistent variable naming and aws_region data source
+- [x] Built compute module: Security Groups, IAM Role, Launch Template, ALB, Target Group, Listener, ASG
+- [x] Deployed 25 resources in single terraform apply
+- [x] Verified nginx serving HTTP 200 via ALB DNS in browser
+- [x] Verified both ASG instances healthy in target group
+- [x] Verified SSM access into private instance — no public IP, no SSH
 
 ---
 

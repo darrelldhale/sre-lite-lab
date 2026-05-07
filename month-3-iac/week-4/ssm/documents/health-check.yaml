@@ -14,7 +14,7 @@ mainSteps:
         - systemctl is-active {{ ServiceName }} && echo "{{ ServiceName }} is running" || echo "{{ ServiceName }} is not running"
         - systemctl status {{ ServiceName }} --no-pager
 
-  - name: CheckDisk
+  - name: CheckDiskAndCPU
     action: aws:runShellScript
     inputs:
       runCommand:
