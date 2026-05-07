@@ -6,6 +6,7 @@ terraform {
     }
   }
 
+# S3 Bucket To Hold State Files
   backend "s3" {
     bucket         = "sre-lab-tfstate-425924867120"
     key            = "month-4/week-1/terraform.tfstate"
@@ -19,6 +20,7 @@ provider "aws" {
   region = var.aws_region
 }
 
+# Tags
 locals {
   tags = {
     Project     = var.project
@@ -29,6 +31,7 @@ locals {
   }
 }
 
+# Modules
 module "networking" {
   source = "./modules/networking"
 
