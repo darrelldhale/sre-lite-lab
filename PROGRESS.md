@@ -9,7 +9,7 @@
 
 ---
 
-## Month 1 — SRE Foundations ✅
+## Month 1 — SRE Foundations
 
 ### Week 1 — Linux Internals
 - [x] Processes, PIDs, parent/child relationships
@@ -18,7 +18,7 @@
 - [x] systemd: units, targets, journald
 - [x] cgroups: resource limits and container foundations
 
-### Week 2 — Bash Scripting ✅
+### Week 2 — Bash Scripting
 - [x] Variables, conditionals, loops, functions
 - [x] Error handling: set -euo pipefail, exit codes, || true
 - [x] Argument validation: $#, $1, $2, default values
@@ -28,14 +28,14 @@
 - [x] Built sre-watchdog.sh — auto-restart with logging and max retries
 - [x] Built sre-logdig.sh — multi-source log search with time filtering
 
-### Week 3 — Networking Fundamentals ✅
+### Week 3 — Networking Fundamentals
 - [x] TCP/IP: how packets actually move
 - [x] DNS: resolution from stub to root
 - [x] HTTP: requests, responses, status codes
 - [x] TLS: handshake, certificates, trust chains
 - [x] Debugging tools: curl, dig, netstat, tcpdump
 
-### Week 4 — Git Workflows + AWS CLI + IAM ✅
+### Week 4 — Git Workflows + AWS CLI + IAM
 - [x] Git branching: checkout -b, merge, fast-forward vs merge commit
 - [x] Branch cleanup and push workflow
 - [x] AWS CLI output formats: json, table, text
@@ -47,20 +47,20 @@
 
 ---
 
-## Month 2 — AWS Infrastructure ✅
+## Month 2 — AWS Infrastructure
 
-### Week 1 ✅
+### Week 1
 - Configured AWS CLI and Terraform in WSL
 - Created GitHub repo and pushed initial structure
 
-### Week 2 ✅
+### Week 2
 - Built VPC, public/private subnets, IGW, NAT Gateway, route tables
 - Built App Server (EC2) in private subnet with nginx via user_data
 - Dropped Bastion in favor of SSM Session Manager for access
 - Verified nginx serving HTTP 200 via SSM session
 - Learned: agent forwarding, SSM vs SSH, .gitignore discipline
 
-### Week 3 ✅
+### Week 3
 - Created SNS topic and email subscription for alerts
 - Built CloudWatch CPU alarm (triggers >80% for 4 minutes)
 - Built CloudWatch log group and nginx 4xx metric filter
@@ -69,7 +69,7 @@
 - Verified nginx logs shipping to CloudWatch log group
 - Learned: data sources, IAM policy attachments, CloudWatch agent config
 
-### Week 4 ✅
+### Week 4
 - Installed stress tooling on App Server via SSM
 - Diagnosed and fixed misconfigured CloudWatch alarm dimensions
 - Successfully triggered CPU alarm above 80% threshold
@@ -81,12 +81,12 @@
 ---
 
 ## Month 3 — Infrastructure as Code
-Week 1 — Remote state + rebuild infra        ✅ Done
+Week 1 — Remote state + rebuild infra
 Week 2 — Terraform modules + workspaces
 Week 3 — CloudFormation
 Week 4 — SSM at scale + Tagging strategies
 
-### Week 1 — Remote State + Infrastructure Rebuild ✅
+### Week 1 — Remote State + Infrastructure Rebuild
 - [x] Created S3 bucket for Terraform remote state with versioning and public access blocked
 - [x] Created DynamoDB table for state locking
 - [x] Consolidated Month 2 week-2 and week-3 configs into a single Terraform root
@@ -98,7 +98,7 @@ Week 4 — SSM at scale + Tagging strategies
 - [x] Wrote full repo README.md with month summaries and key decisions
 - [x] Learned: remote state, state locking, bootstrap problem, consolidated roots
 
-### Week 2 — Terraform Modules + Workspaces ✅
+### Week 2 — Terraform Modules + Workspaces
 - [x] Refactored flat main.tf into three reusable modules: networking, compute, observability
 - [x] Each module has its own variables.tf, main.tf, and outputs.tf
 - [x] Wired module outputs to module inputs via root main.tf
@@ -110,7 +110,7 @@ Week 4 — SSM at scale + Tagging strategies
 - [x] Verified ternary expressions drive correct values per workspace
 - [x] Learned: modules, data flow between modules, workspaces, ternary expressions
 
-### Week 3 — CloudFormation ✅
+### Week 3 — CloudFormation
 - [x] Learned CloudFormation vocabulary: stacks, parameters, resources, outputs
 - [x] Mapped CloudFormation concepts to Terraform equivalents
 - [x] Learned CloudFormation intrinsic functions: !Sub, !Ref
@@ -122,7 +122,7 @@ Week 4 — SSM at scale + Tagging strategies
 - [x] Enabled AWS CLI auto-complete in WSL
 - [x] Learned: CloudFormation vs Terraform tradeoffs, when each is used in production
 
-### Week 4 — SSM at Scale + Tagging Strategies ✅
+### Week 4 — SSM at Scale + Tagging Strategies
 - [x] Built SSM Document — SRELab-HealthCheck with 4 steps: service, disk, memory, failed services
 - [x] Registered document with AWS via aws ssm create-document
 - [x] Ran document against EC2 instance via aws ssm send-command
@@ -144,7 +144,7 @@ Week 4 — SSM at scale + Tagging strategies
 - Blue/Green and canary deployment patterns
 - Introduction to EKS
 
-### Week 1 — EC2 Deep Dive: AMI, Launch Template, ASG ✅
+### Week 1 — EC2 Deep Dive: AMI, Launch Template, ASG
 - [x] Destroyed Month 3 week-2 stack — AMI survived independently
 - [x] Installed SRE toolkit on existing instance: htop, jq, net-tools, tcpdump, git, stress
 - [x] Baked custom AMI: sre-lab-base-ami-v1 (ami-06e35715bc33b8177)
