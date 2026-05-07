@@ -6,8 +6,7 @@ fully observable, chaos-tested system on AWS.
 
 ## Goal
 
-Build the skills and portfolio of a junior-to-mid SRE engineer through
-real tools, real infrastructure, and real incident response — not tutorials.
+Build the skills and portfolio through real tools, real infrastructure, and real incident response — not tutorials.
 
 ## Environment
 
