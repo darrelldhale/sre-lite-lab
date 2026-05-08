@@ -138,7 +138,7 @@ Week 4 — SSM at scale + Tagging strategies
 
 ---
 
-## Month 4 — Compute, Containers & Deployment (Planned)
+## Month 4 — Compute, Containers & Deployment
 - EC2 deep dive: launch templates, AMIs, Auto Scaling Groups
 - Docker fundamentals and ECS Fargate
 - Blue/Green and canary deployment patterns
@@ -156,9 +156,25 @@ Week 4 — SSM at scale + Tagging strategies
 - [x] Verified both ASG instances healthy in target group
 - [x] Verified SSM access into private instance — no public IP, no SSH
 
+
+### Week 2 — Docker Fundamentals
+- [x] Verified Docker installation in WSL
+- [x] Pulled and ran hello-world image — understood local cache behavior
+- [x] Built custom nginx image with two-line Dockerfile: sre-lab-nginx:v1
+- [x] Ran container with port mapping, verified custom HTML in browser and curl
+- [x] Exec'd into running container — explored ps aux, hostname, filesystem
+- [x] Inspected container logs — identified curl vs browser requests
+- [x] Inspected image layers with docker history — understood layer caching
+- [x] Built sre-lab-nginx:v2 — observed base layer cache reuse
+- [x] Simulated rollback — understood image tags as deployment artifacts
+- [x] Demonstrated volume mounts — live file changes without rebuild
+- [x] Learned: images vs containers, Dockerfile, layer caching, volumes, docker exec, rmi
+- [x] Learned: Docker vs ECS vs EKS — packaging vs orchestration vs scale
+
+
 ---
 
-## Month 5 — Observability (Planned)
+## Month 5 — Observability
 - CloudWatch the right way: structured logging, X-Ray tracing
 - Real on-call dashboard
 - SLIs, SLOs, error budgets
@@ -166,7 +182,7 @@ Week 4 — SSM at scale + Tagging strategies
 
 ---
 
-## Month 6 — Incident Management & Chaos Engineering (Planned)
+## Month 6 — Incident Management & Chaos Engineering
 - Full incident response playbook
 - AWS Fault Injection Simulator (FIS)
 - Runnable runbooks
@@ -175,7 +191,7 @@ Week 4 — SSM at scale + Tagging strategies
 
 ---
 
-## Month 7 — Security, Networking & Cost (Planned)
+## Month 7 — Security, Networking & Cost
 - AWS Security Hub, GuardDuty, Config
 - VPC Flow Logs
 - Secrets Manager and Parameter Store
@@ -183,9 +199,10 @@ Week 4 — SSM at scale + Tagging strategies
 
 ---
 
-## Month 8 — Capstone (Planned)
+## Month 8 — Capstone
 - Multi-tier, highly available production-grade system
 - Full IaC, observability, CI/CD pipeline
 - Chaos engineering with own runbooks
 - Post-mortem
 - SRE portfolio document
+- Python
