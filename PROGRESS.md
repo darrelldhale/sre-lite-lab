@@ -253,7 +253,14 @@ In summary, here is what I accomplished this week:
 - [x] Learned: SNS topics and subscriptions, alarm actions, CloudWatch dashboard JSON, scanner noise vs real errors
 
 
-
+### Week 3 — SLIs, SLOs, and Error Budgets
+- [ ] Defined Northwind SLO: 99.5% success rate over 30-day rolling window
+- [ ] Wrote SLO definitions doc: references/slo-definitions.md
+- [ ] Added Row 4 to on-call dashboard — SLI success rate, burn rate, SLO reference card
+- [ ] SLI widget uses metric math: (total - 5xx) / total * 100 with 99.5% annotation line
+- [ ] Burn rate widget: (5xx rate) / 0.005 with fast/slow burn threshold annotations
+- [ ] Added burn rate alarm using metric_query blocks — fires when burn rate exceeds 14.4x
+- [ ] Learned: SLIs, SLOs, error budgets, burn rate math, metric math alarms vs single-metric alarms, (known after apply) in Terraform plan diffs
 
 ---
 
