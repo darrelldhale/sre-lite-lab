@@ -21,3 +21,9 @@ variable "container_image" {
   type        = string
   default     = "425924867120.dkr.ecr.us-east-1.amazonaws.com/sre-lab-dev-ecr-repo:v6"
 }
+
+variable "alert_email" {
+  description = "Email address to receive CloudWatch alarm notifications"
+  type        = string
+  default     = "myawstraining2026@gmail.com"
+}

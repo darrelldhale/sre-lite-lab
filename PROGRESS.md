@@ -238,6 +238,21 @@ In summary, here is what I accomplished this week:
 - [x] Verified metric filters producing data points in SRELab/Nginx namespace
 - [x] Learned: structured logging, metric filters, Logs Insights queries, log-to-metric pipeline
 
+### Week 2 — Alarms, SNS, and On-Call Dashboard
+- [x] Built SNS topic: sre-lab-dev-alerts — central notification channel for all alarms
+- [x] Added email subscription and confirmed — alarm notifications delivered to on-call email
+- [x] Wired alarm_actions and ok_actions to SNS topic on all alarms
+- [x] Built CloudWatch alarm: sre-lab-dev-ecs-cpu-too-high — fires above 80% CPU for 2 minutes
+- [x] Built CloudWatch alarm: sre-lab-dev-ecs-memory-too-high — fires above 80% memory for 2 minutes
+- [x] Built CloudWatch dashboard: sre-lab-dev-dashboard — Northwind on-call view
+- [x] Dashboard row 1: alarm status panel — all three alarms green/red at a glance
+- [x] Dashboard row 2: request rate, 4xx errors, 5xx errors — HTTP health
+- [x] Dashboard row 3: ECS CPU and memory utilization — container resource health
+- [x] Deployed v6 via CodeDeploy blue/green — verified dashboard reflects live traffic
+- [x] Discovered internet scanner activity in 4xx logs — PHP webshell probes, .git/config theft attempts, .env secrets hunting
+- [x] Learned: SNS topics and subscriptions, alarm actions, CloudWatch dashboard JSON, scanner noise vs real errors
+
+
 
 
 ---

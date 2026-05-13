@@ -9,7 +9,7 @@ terraform {
   # S3 Bucket To Hold State Files
   backend "s3" {
     bucket         = "sre-lab-tfstate-425924867120"
-    key            = "month-5/week-2/terraform.tfstate"
+    key            = "month-5/week-1/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "sre-lab-tfstate-lock"
     encrypt        = true
@@ -65,10 +65,19 @@ module "compute" {
 module "observability" {
   source = "./modules/observability"
 
-  prefix      = var.project
+  project     = var.project
   environment = var.environment
   tags        = local.tags
 
   # Log group created by the compute module - observability watches it for metric filters
   log_group_name = module.compute.ecs_log_group_name
+
+  # Email address for alarm notifications via SNS
+  alert_email = var.alert_email
+
+  # ECS cluster name used as a dimension for CPU and memory alarms
+  ecs_cluster_name = module.compute.ecs_cluster_name
+
+  # ECS service name used as a dimension for CPU and memory alarms
+  ecs_service_name = module.compute.ecs_service_name
 }
