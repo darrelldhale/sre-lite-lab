@@ -242,7 +242,6 @@ system that Northwind could operate on day one.
   corrective actions.
 - **SRE portfolio document** — A written summary of the system, the
   decisions made, the incidents handled, and the lessons learned.
-  Suitable for sharing with a hiring manager or engineering team.
 
 The capstone is not a tutorial completion. It is evidence that Northwind's
 infrastructure can be built, operated, broken, fixed, and handed off —
