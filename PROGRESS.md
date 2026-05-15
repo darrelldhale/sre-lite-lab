@@ -295,6 +295,21 @@ In summary, here is what I accomplished this week:
 - [x] Learned: playbook vs runbook distinction, severity classification, incident lifecycle
 
 ### Week 2 — AWS Fault Injection Simulator (FIS)
+- [x] Added ecs_cluster_arn output to compute module — required for FIS target resolution
+- [x] Added burn_rate_alarm_arn output to observability module — used as FIS stop condition
+- [x] Added comments to observability outputs.tf — consistent with compute module style
+- [x] Built FIS IAM role and policy — scoped to StopTask, DescribeTasks, DescribeAlarms
+- [x] Built FIS experiment template — targets ECS tasks by Project tag, COUNT(1) and COUNT(2)
+- [x] Added propagate_tags = "SERVICE" to ECS service — tasks inherit service tags for FIS targeting
+- [x] Ran single task stop experiment — ECS self-healed in under 60 seconds, no alarms fired
+- [x] Ran dual task stop experiment — ECS self-healed faster than alarm evaluation windows
+- [x] Learned: ECS Fargate self-healing is faster than alarm thresholds — resilience is good but makes chaos testing harder
+- [x] Built broken v9 image — nginx passes ELB health checks but returns 500 to real traffic
+- [x] Deployed v9 via CodeDeploy — canary and 5xx alarms fired as expected
+- [x] Rolled back to v8 via CodeDeploy — all alarms cleared, system recovered
+- [x] Learned: auto-rollback only catches deployment failures, not post-deployment application failures
+- [x] Learned: chaos via bad deployment is more reliable than FIS task-stop for fast-recovering Fargate services
+
 ### Week 3 — Runnable Runbooks
 ### Week 4 — On-call Simulation, Backup/Restore + DR Testing
 
