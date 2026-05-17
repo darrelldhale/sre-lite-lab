@@ -321,6 +321,20 @@ In summary, here is what I accomplished this week:
 - [x] Learned: runnable vs documentary runbooks, scripts complement not replace the First Responder Checklist, variables resolve at print time for copy-paste readiness, -z flag for empty string checks, FAILED grep pattern for S3 canary artifacts
 
 ### Week 4 — On-call Simulation, Backup/Restore + DR Testing
+- [x] Rebuilt week-4 infra from week-3 baseline — removed FIS resources (proven ineffective for fast-recovering Fargate)
+- [x] Deployed v9 clean image — verified Northwind portal healthy before simulation
+- [x] Ran on-call simulation — deployed v10 bad image, triggered http-5xx-too-high alarm
+- [x] Worked incident end-to-end using triage.sh and investigate-5xx.sh
+- [x] Discovered three runbook gaps under real incident pressure — stop-deployment window, ecs update-service limitation, deregistered task definitions
+- [x] Recovered service via Terraform tfvars update → apply → CodeDeploy redeploy
+- [x] Wrote on-call-simulation-report-1.md — full timeline, root cause, lessons learned
+- [x] Fixed investigate-5xx.sh — removed invalid ecs update-service option, added active task definition check, added endpoint breakdown query (Step 5)
+- [x] Added TASK_FAMILY to config.sh
+- [x] Wrote backup-restore-strategy.md — four recovery scenarios, artifact chain, key decisions
+- [x] Built dr-restore.sh — runnable recovery guide covering all three recovery paths
+- [x] Wrote dr-test-report.md — RTO 27 minutes against 30 minute target, PASS
+- [x] Added last-known-good image comment pattern to terraform.tfvars and terraform.tfvars.example
+- [x] Learned: CodeDeploy rollback requires active task definition revision, Terraform is source of truth for task definitions, stop-deployment window is narrow, health check bypass is a real post-deployment failure mode
 
 ---
 
