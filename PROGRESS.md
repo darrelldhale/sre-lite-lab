@@ -338,4 +338,4 @@ In summary, here is what I accomplished this week:
 - Chaos engineering with own runbooks
 - Post-mortem
 - SRE portfolio document
-- Python
+- Python - Just enough for App Support/SRE work
