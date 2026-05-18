@@ -344,6 +344,17 @@ In summary, here is what I accomplished this week:
 - Secrets Manager and Parameter Store
 - FinOps: Cost Explorer, Budgets, rightsizing
 
+### Week 1 — AWS Security Hub, GuardDuty, and Config
+- [x] Enabled GuardDuty detector — monitors CloudTrail, VPC Flow Logs, and DNS logs for threats
+- [x] Built Config S3 bucket — versioned, encrypted, public access blocked, bucket policy for Config delivery
+- [x] Built Config IAM role with inline policy — S3 delivery and resource read permissions
+- [x] Built Config recorder — records all supported resource types including global resources
+- [x] Built Config delivery channel — delivers history to S3 bucket
+- [x] Built Config rule: INCOMING_SSH_DISABLED — flags security groups allowing unrestricted SSH
+- [x] Enabled Security Hub — aggregates GuardDuty and Config findings into single pane
+- [x] Subscribed to AWS Foundational Security Best Practices standard
+- [x] Reviewed real Security Hub findings — MFA, CloudTrail, and encryption gaps surfaced
+- [x] Learned: GuardDuty vs Config vs Security Hub roles, terraform untaint, bucket policies for AWS services, inline vs managed IAM policies
 ---
 
 ## Month 8 — Capstone

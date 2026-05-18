@@ -11,7 +11,7 @@
 
 This playbook defines how Northwind Health Group responds to infrastructure and application incidents affecting the Patient Portal. It covers severity levels, roles, the incident lifecycle, alarm-specific response procudures, and communication templates.
 
-Every on-call engineer is expected to know this document before their shift
+Every on-call engineer is expected to have this document nearby before their shift.
 
 ---
 
