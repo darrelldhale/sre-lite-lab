@@ -377,3 +377,16 @@ In summary, here is what I accomplished this week:
 - Post-mortem
 - SRE portfolio document
 - Python - Just enough for App Support/SRE work
+
+## Month 8 — Capstone
+
+### Week 1 — Capstone Foundation
+- [x] Created month-8-capstone/week-1 — copied from month-7-week-2 baseline
+- [x] Cut month-8-week-1 branch
+- [x] Fixed stale last-known-good image comment in terraform.tfvars — updated to v9
+- [x] Added tags variable to security module — wired merge pattern on all taggable resources
+- [x] Wired tags = local.tags into security module block in root main.tf
+- [x] Wrote references/adr-001-capstone-architecture.md — documents all key architecture decisions and tradeoffs
+- [x] Deployed full capstone stack — networking, compute, observability, security modules
+- [x] Verified: 2/2 ECS tasks healthy, both IPs in blue target group, all 5 alarms OK, canary passing
+- [x] Learned: ADR as engineering artifact, capstone as integration of all prior months

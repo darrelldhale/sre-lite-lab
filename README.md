@@ -19,7 +19,7 @@ their on-premises infrastructure by migrating to AWS. As their infrastructure an
   instant rollback capability.
 - **Full observability** — Every service monitored, every incident
   documented with a post-mortem, runbooks maintained for on-call response.
-- **Automation first** — Manual toil is the enemy. Scripts, pipelines,
+- **Automation first** — Manual operation is the enemy. Scripts, pipelines,
   and SSM documents replace repetitive human work across the fleet.
 
 ---

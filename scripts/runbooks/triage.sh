@@ -5,12 +5,34 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/config.sh"
 
 echo "================================================="
-echo " NORTHWIND HEALTH GROUP TRIAGE — All Alarm Status"
+echo " NORTHWIND HEALTH GROUP TRIAGE — All Alarm Status And ECS Health"
 echo " $(date)"
 echo "================================================="
 
 echo ""
-echo "Checking all 5 alarms..."
+echo "Checking ECS Tasks Health..."
+echo ""
+
+aws ecs describe-services \
+  --cluster sre-lab-dev-ecs-cluster \
+  --services sre-lab-dev-ecs-service \
+  --query "services[0].{Running:runningCount,Desired:desiredCount,Pending:pendingCount}" \
+  --output table
+
+aws elbv2 describe-target-groups \
+  --query "TargetGroups[?starts_with(TargetGroupName, 'sre-lab-dev')].TargetGroupArn" \
+  --output text | tr '\t' '\n' | while read arn; do
+  echo "=== $arn ==="
+  aws elbv2 describe-target-health \
+    --target-group-arn "$arn" \
+    --query 'TargetHealthDescriptions[*].[Target.Id, Target.Port, TargetHealth.State, TargetHealth.Description]' \
+    --output table
+done
+
+sleep 3
+
+echo ""
+echo "Checking all 6 alarms..."
 echo ""
 
 aws cloudwatch describe-alarms \
@@ -20,6 +42,7 @@ aws cloudwatch describe-alarms \
     "$ALARM_MEMORY" \
     "$ALARM_BURN_RATE" \
     "$ALARM_CANARY" \
+    "$ALARM_VPC_REJECT" \
   --region "$REGION" \
   --query "MetricAlarms[*].{Alarm:AlarmName,State:StateValue,Reason:StateReason}" \
   --output table
