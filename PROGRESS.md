@@ -386,3 +386,19 @@ In summary, here is what I accomplished this week:
 - [x] Deployed full capstone stack — networking, compute, observability, security modules
 - [x] Verified: 2/2 ECS tasks healthy, both IPs in blue target group, all 5 alarms OK, canary passing
 - [x] Learned: ADR as engineering artifact, capstone as integration of all prior months
+
+
+### Week 2 — CI/CD Pipeline
+- [x] Created repo-level app/ folder — stable pipeline source, Dockerfile/nginx.conf/index.html
+- [x] Fixed Dockerfile COPY path — updated from app/index.html to index.html for flat structure
+- [x] Built .github/workflows/deploy.yml — full GitHub Actions pipeline
+- [x] Pipeline trigger: push to main with changes in app/** only — doc commits don't deploy
+- [x] Pipeline stages: Build → Smoke Test → Push to ECR → Register task definition → CodeDeploy
+- [x] Smoke test: runs container locally on runner, curls it, asserts 200 before any push
+- [x] Built pipeline-iam.tf — dedicated IAM user with least-privilege scoped permissions
+- [x] Scoped permissions: ECRAuth, ECRPush, ECSTaskDefinition, PassRole, CodeDeploy only
+- [x] Generated access keys for pipeline IAM user — stored as GitHub Secrets, never in code
+- [x] First pipeline run: Success — 33 seconds, all stages green, deployment d-QYBIT7SJJ succeeded
+- [x] Verified: ALB returned 200, all 5 alarms OK, 2/2 ECS tasks running
+- [x] Updated action versions to support Node.js 24 ahead of June 2nd deprecation deadline
+- [x] Learned: GitHub Actions triggers, path filters, smoke testing, inline AppSpec for CodeDeploy, GITHUB_OUTPUT
