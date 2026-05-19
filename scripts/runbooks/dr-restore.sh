@@ -14,7 +14,7 @@ echo "==================================================="
 echo ""
 echo "[1/4] Checking all alarm states..."
 aws cloudwatch describe-alarms \
-	--alarm-names "$ALARM_5XX" "$ALARM_CPU" "$ALARM_MEMORY" "$ALARM_BURN_RATE" "$ALARM_CANARY" \
+	--alarm-names "$ALARM_5XX" "$ALARM_CPU" "$ALARM_MEMORY" "$ALARM_BURN_RATE" "$ALARM_CANARY" "$ALARM_VPC_REJECT" \
 	--region "$REGION" \
 	--query "MetricAlarms[*].{Alarm:AlarmName,State:StateValue}" \
 	--output table
@@ -90,9 +90,9 @@ echo "        --cli-input-json file://deployment.json \\"
 echo "        --output json"
 echo "
 echo "   7. Make sure to push the tfvars change BACK to the repo."
-echo ""
+echo "
 echo " VERIFY RECOVERY:"
-echo "   curl -s -o /dev/null -w '%{http_code}' http://$ALB_DNS"
+echo "   curl -s -o /dev/null -w '%{http_code}' http://${ALB_DNS}"
 echo "   # Expected: 200"
 echo ""
 echo "   ~/sre-lite-lab/scripts/runbooks/triage.sh"
