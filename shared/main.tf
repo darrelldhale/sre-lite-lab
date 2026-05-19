@@ -118,3 +118,19 @@ resource "aws_iam_user_policy_attachment" "pipeline" {
   user       = aws_iam_user.pipeline_user.name
   policy_arn = aws_iam_policy.pipeline_policy.arn
 }
+
+# VPC Flow Logs log group — lives here permanently so it survives
+# terraform destroy on the main infra stack
+resource "aws_cloudwatch_log_group" "vpc_flow_logs" {
+  name              = "/vpc/flow-logs/sre-lab-dev"
+  retention_in_days = 30
+
+  tags = {
+    Project     = "sre-lab"
+    Environment = "dev"
+    ManagedBy   = "terraform"
+    Name        = "sre-lab-dev-vpc-flowlogs"
+    Owner       = "darrell"
+    CostCenter  = "sre-lab"
+  }
+}

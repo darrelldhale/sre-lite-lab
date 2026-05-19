@@ -30,5 +30,5 @@ output "nat_gateway_ip" {
 
 output "flow_log_group_name" {
   description = "Name of the CloudWatch Log Group receiving VPC flow logs"
-  value       = aws_cloudwatch_log_group.vpc_flow_logs.name
+  value = data.aws_cloudwatch_log_group.vpc_flow_logs.name
 }

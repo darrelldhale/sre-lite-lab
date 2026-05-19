@@ -134,18 +134,14 @@ resource "aws_route_table_association" "private_2" {
 }
 
 # =================================================
-# VPC FLOW LOGS - CLOUDWATCH LOG GROUP
+# VPC FLOW LOGS - CLOUDWATCH LOG GROUP (now In Shared main.tf)
 # All flow logs records land here. 30-day retention
 # balances HIPPA audit requirements against storage cost
 # =================================================
-resource "aws_cloudwatch_log_group" "vpc_flow_logs" {
+# Log group lives in shared/ and is never destroyed
+# This data source reads it without taking ownership of it
+data "aws_cloudwatch_log_group" "vpc_flow_logs" {
   name = "/vpc/flow-logs/${var.project}-${var.environment}"
-
-  retention_in_days = 30
-
-  tags = merge(var.tags, {
-    Name = "${var.project}-${var.environment}-vpc-flowlogs"
-  })
 }
 
 # -------------------------------------------------------
@@ -210,7 +206,7 @@ resource "aws_flow_log" "main" {
   vpc_id          = aws_vpc.main.id
   traffic_type    = "ALL"
   iam_role_arn    = aws_iam_role.flow_logs.arn
-  log_destination = aws_cloudwatch_log_group.vpc_flow_logs.arn
+  log_destination = data.aws_cloudwatch_log_group.vpc_flow_logs.arn
 
   log_destination_type = "cloud-watch-logs"
 
