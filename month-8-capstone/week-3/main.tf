@@ -64,7 +64,8 @@ module "compute" {
     module.networking.private_subnet_2_id
   ]
 
-  container_image = var.container_image
+  container_image      = var.container_image
+  deployment_wait_time = var.deployment_wait_time
 }
 
 module "observability" {

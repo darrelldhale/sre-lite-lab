@@ -27,3 +27,9 @@ variable "aws_account_id" {
   description = "AWS account ID — used for S3 bucket naming and IAM policy ARNs"
   type        = string
 }
+
+variable "deployment_wait_time" {
+  description = "Minutes CodeDeploy waits before terminating old blue tasks after traffic shift"
+  type        = number
+  default     = 5
+}
